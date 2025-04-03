@@ -1,0 +1,63 @@
+{
+  "DockablePanel": {
+    "styling": {
+      "position": "absolute",
+      "zIndexLayers": {
+        "normal": 10,
+        "dragging": 100,
+        "maximized": 50
+      },
+      "transitions": {
+        "shadow": "box-shadow 0.2s ease"
+      },
+      "dimensions": {
+        "headerHeight": "40px",
+        "buttonSize": "24px",
+        "resizeHandleWidth": "6px",
+        "resizeHandleCorner": "12px"
+      }
+    },
+    "behaviors": {
+      "drag": {
+        "trigger": "mousedown on header",
+        "constraints": "window boundaries",
+        "events": ["dragStart", "drag", "dragEnd"]
+      },
+      "resize": {
+        "handles": ["right", "bottom", "corner"],
+        "constraints": "minWidth/maxWidth, minHeight/maxHeight",
+        "cursor": {
+          "right": "ew-resize",
+          "bottom": "ns-resize",
+          "corner": "nwse-resize"
+        }
+      },
+      "window": {
+        "popout": {
+          "features": [
+            "width",
+            "height",
+            "left",
+            "top",
+            "menubar=no",
+            "toolbar=no",
+            "location=no",
+            "status=no"
+          ],
+          "naming": "panel-{id}"
+        }
+      }
+    },
+    "stateManagement": {
+      "position": {
+        "free": "top/left coordinates",
+        "docked": "css classes for each position"
+      },
+      "size": {
+        "normal": "width/height from props or resize",
+        "minimized": "header only",
+        "maximized": "window size - margins"
+      }
+    }
+  }
+}

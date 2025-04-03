@@ -1,0 +1,44 @@
+{
+  "atoms": {
+    "DockablePanel": {
+      "props": {
+        "required": ["id"],
+        "optional": {
+          "title": "string",
+          "initialWidth": "number",
+          "initialHeight": "number",
+          "initialTop": "number",
+          "initialLeft": "number",
+          "minWidth": "number",
+          "minHeight": "number",
+          "maxWidth": "number",
+          "maxHeight": "number",
+          "initialDockPosition": "'free' | 'left' | 'right' | 'top' | 'bottom' | 'center'",
+          "allowClose": "boolean",
+          "allowMinimize": "boolean",
+          "allowMaximize": "boolean",
+          "allowResize": "boolean",
+          "active": "boolean",
+          "windowUrl": "string"
+        }
+      },
+      "events": {
+        "update:active": "boolean",
+        "close": "{ id: string }",
+        "minimize": "{ id: string, minimized: boolean }",
+        "maximize": "{ id: string }",
+        "restore": "{ id: string }",
+        "dragStart": "{ id: string, event: MouseEvent | TouchEvent }",
+        "dragEnd": "{ id: string, position: { top: number, left: number } }",
+        "resize": "{ id: string, size: { width: number, height: number } }",
+        "dockChange": "{ id: string, dockPosition: DockPosition }",
+        "destroy": "{ id: string }",
+        "popout": "{ id: string, url: string }"
+      },
+      "slots": {
+        "default": "Content of the panel"
+      },
+      "dependencies": ["vuetify"]
+    }
+  }
+}

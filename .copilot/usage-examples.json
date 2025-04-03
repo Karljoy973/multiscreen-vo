@@ -1,0 +1,20 @@
+{
+  "DockablePanel": {
+    "basic": {
+      "template": "<atoms-dockable-panel id=\"example\" title=\"Basic Panel\"><div>Content</div></atoms-dockable-panel>"
+    },
+    "withSize": {
+      "template": "<atoms-dockable-panel id=\"sized\" :initial-width=\"800\" :initial-height=\"600\"></atoms-dockable-panel>"
+    },
+    "docked": {
+      "template": "<atoms-dockable-panel id=\"docked\" initial-dock-position=\"right\"></atoms-dockable-panel>"
+    },
+    "withWindow": {
+      "template": "<atoms-dockable-panel id=\"windowed\" window-url=\"/panel\" @popout=\"handlePopout\"></atoms-dockable-panel>"
+    },
+    "controlled": {
+      "template": "<atoms-dockable-panel v-if=\"panels.includes('panel-id')\" @destroy=\"removePanel\"></atoms-dockable-panel>",
+      "script": "const panels = ref(['panel-id']); function removePanel(event) { panels.value = panels.value.filter(id => id !== event.id); }"
+    }
+  }
+}
